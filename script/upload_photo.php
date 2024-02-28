@@ -18,36 +18,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $requete->closeCursor();
 
-    
-    $categorieInfo = $categorieManager->getCategorieById($categorieId);
+    if (isset($_POST['nomphoto'], $_POST['categorie'], ) && !empty($_POST['nomphoto'])) {
 
-    $nomPhotoFormulaire = isset($_POST['nomphoto']) ? $_POST['nomphoto'] : '';
+        $categorieInfo = $categorieManager->getCategorieById($categorieId);
 
-    $identifiantUnique = substr(uniqid(), 0, 10); // Limite la longueur à 10 caractères
+        $nomPhotoFormulaire = isset($_POST['nomphoto']) ? $_POST['nomphoto'] : '';
 
-    $identifiantUnique = $_SESSION['idUser'] . '_' . $identifiantUnique;
-    
-    // Préparer les données de la photo pour l'ajout à la base de données
-    $photoData = [
-        'nomPhoto' =>  $nomPhotoFormulaire,
-        'taillePixelX' => getimagesize($_FILES['photo']['tmp_name'])[0],
-        'taillePixelY' => getimagesize($_FILES['photo']['tmp_name'])[1],
-        'poids' => $_FILES['photo']['size'],
-        'idUser' => $_SESSION['idUser'], 
-        'urlPhoto' => '../images/vendre_stock/' . $identifiantUnique, 
-        'categorie' => $categorieInfo['libelle'] . ',' . $resultat['libelle'], 
-        'description'=> $_POST['description']
-    ];
+        $identifiantUnique = substr(uniqid(), 0, 10); // Limite la longueur à 10 caractères
 
-    
-    $photoManager->addPhoto($photoData);
-    
-    // Téléverser le fichier sur le serveur
-    move_uploaded_file($_FILES['photo']['tmp_name'], '../images/vendre_stock/' . $identifiantUnique);
+        $identifiantUnique = $_SESSION['idUser'] . '_' . $identifiantUnique;
 
-    // Définir un message de succès et rediriger vers la page de vente
-    $_SESSION['success_message'] = "L'image a été transférée avec succès!";
-    header("Location: ../pages/vendre.php");
+        
+        // Préparer les données de la photo pour l'ajout à la base de données
+        $photoData = [
+            'nomPhoto' =>  $nomPhotoFormulaire,
+            'taillePixelX' => getimagesize($_FILES['photo']['tmp_name'])[0],
+            'taillePixelY' => getimagesize($_FILES['photo']['tmp_name'])[1],
+            'poids' => $_FILES['photo']['size'],
+            'idUser' => $_SESSION['idUser'], 
+            'urlPhoto' => '../images/vendre_stock/' . $identifiantUnique, 
+            'categorie' => $categorieInfo['libelle'] . ',' . $resultat['libelle'], 
+            'description'=> $_POST['description']
+        ];
+
+        
+        $photoManager->addPhoto($photoData);
+        
+        // Téléverser le fichier sur le serveur
+        move_uploaded_file($_FILES['photo']['tmp_name'], '../images/vendre_stock/' . $identifiantUnique);
+
+        // Définir un message de succès et rediriger vers la page de vente
+        $_SESSION['success_message'] = "L'image a été transférée avec succès!";
+        header("Location: ../pages/vendre.php");
+    } else {
+        // Redirection avec un message d'erreur si le formulaire n'est pas correctement rempli
+        $_SESSION['error_message'] = "Veuillez remplir tous les champs du formulaire.";
+        header("Location: ../pages/vendre.php");
+        exit();
+    }
 } else {
     // Redirection ou message d'erreur si le formulaire n'a pas été soumis
     header("Location: ../pages/vendre.php");
