@@ -98,6 +98,32 @@ class PhotoManager
     }
 
 
+    public function affichePlusieursPhotos($categorie, $autreCondition)
+    {
+        try {
+            // Requête pour obtenir des photos en fonction de la catégorie et de l'autre condition
+            $q = $this->_db->prepare('SELECT * FROM photos WHERE categorie LIKE :categorie AND categorie LIKE :autreCondition');
+            
+            // Utilisation de bindValue au lieu de bindParam pour éviter la nécessité de passer par référence
+            $q->bindValue(':categorie', '%' . $categorie . '%', PDO::PARAM_STR);
+            $q->bindValue(':autreCondition', '%' . $autreCondition . '%', PDO::PARAM_STR);
+            
+            $q->execute();
+
+            // Récupération de toutes les lignes (fetchAll) au lieu d'une seule ligne (fetch)
+            $result = $q->fetchAll(PDO::FETCH_ASSOC);
+
+            // Fermeture du curseur
+            $q->closeCursor();
+
+            return $result;
+        } catch (PDOException $e) {
+            // Gérer les erreurs PDO ici
+            throw new Exception("Erreur lors de la récupération des photos : " . $e->getMessage());
+        }
+    }
+
+
 
 
      /**

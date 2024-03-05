@@ -2,11 +2,11 @@
 include ("../include/entete.inc.php");
 ?>
 
-<form method="post" action="../script/choix_categorie.php" id="categorieForm">
+<form method="post" action="../script/choix_categorie_general.php" id="categorieForm">
         <label for="categorie">Catégorie :</label>
         <select name="categorie" id="categorie" class="btn btn-secondary dropdown-toggle dropdown-nouveautes" onchange="submitForm()">
             <?php
-            $listeCategorie = $categorieManager->getCategorie(1);
+            $listeCategorie = $categorieManager->getCategorie(2);
 
             // Si une catégorie est passée dans le paramètre GET, affichez cette catégorie en premier
             $categorieActuelle = isset($_GET['categorie']) ? htmlspecialchars($_GET['categorie']) : null;
@@ -26,9 +26,9 @@ include ("../include/entete.inc.php");
     <?php
     if (isset($_GET['categorie'])) {
         $categorie = htmlspecialchars($_GET['categorie']);
-        $photo = $photoManager->affichePlusieursPhotos($categorie, 'Les nouveautes');
+        $photo = $photoManager->affichePlusieursPhotos($categorie, 'General');
     } else {
-        $photo = $photoManager->affichePhotos('Les nouveautes');
+        $photo = $photoManager->affichePhotos('General');
     }
     ?>
 

@@ -1,5 +1,6 @@
 .custom-margin-top-6 {
-    margin-top: 6rem; /* Ajustez la valeur selon vos besoins */
+    margin-top: 4rem; /* Ajustez la valeur selon vos besoins */
+    padding: 2rem;
 }
 
 
@@ -78,4 +79,18 @@
     border-radius: 4px;
 }
 
-
+/* CSS spécifique à nouveautes.php */
+.dropdown-nouveautes {
+    position: absolute;
+    top: 3.5rem;
+    right: 5rem;
+    margin-top: 10px; /* Ajustez la marge selon vos besoins pour l'espacement */
+    background-color: #343A40;
+}
+.dropdown-button {
+    position: absolute;
+    top: 3.5rem;
+    right: 0rem;
+    margin-top: 10px; /* Ajustez la marge selon vos besoins pour l'espacement */
+    background-color: #343A40;
+}

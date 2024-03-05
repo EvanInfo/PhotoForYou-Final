@@ -8,7 +8,7 @@
             <input type="file" name="photo" id="photo" accept="image/*" class="photo">
             <br>
             <label for="nomphoto">Nom de la photo :</label>
-            <input type ="text" name="nomphoto" id="nomphoto" class="nomphoto">
+            <input type="text" name="nomphoto" id="nomphoto" class="nomphoto" required>
             <br>
             <label for="description">Description de la photo :</label>
             <textarea name="description" id="description"></textarea>

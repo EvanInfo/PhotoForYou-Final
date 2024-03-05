@@ -15,3 +15,9 @@ document.getElementById('uploadForm').addEventListener('submit', function (event
 
     // Reste du code pour envoyer la requête AJAX vers votre script PHP
 });
+
+// script.js
+
+function submitForm() {
+    document.getElementById("categorieForm").submit();
+}
