@@ -26,9 +26,9 @@ include ("../include/entete.inc.php");
     <?php
     if (isset($_GET['categorie'])) {
         $categorie = htmlspecialchars($_GET['categorie']);
-        $photo = $photoManager->affichePlusieursPhotos($categorie, 'General');
+        $photo = $photoManager->affichePlusieursPhotos($categorie, '');
     } else {
-        $photo = $photoManager->affichePhotos('General');
+        $photo = $photoManager->affichePhotos('');
     }
     ?>
 
