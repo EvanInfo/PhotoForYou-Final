@@ -11,6 +11,10 @@ class Photo
     private $_urlPhoto;
 	private $_categorie;
 	private $_description;
+	private $_estsupprimee;
+	private $_proprietaire;
+	private $_date_creation;
+	private $_prix;
 	
 
 	public function __construct(array $donnees)
@@ -76,6 +80,28 @@ class Photo
 	{
 		return $this->_description;
 	}
+
+	public function getEstSupprimee()
+	{
+		return $this->_estsupprimee;
+	}
+
+	public function getProprietaire()
+	{
+		return $this->_proprietaire;
+	}
+
+
+	public function getDateCreation()
+	{
+		return $this->_date_creation;
+	}
+
+	public function getPrix()
+	{
+		return $this->_prix;
+	}
+
 	// Setters
 
 	public function setId($id)
@@ -150,7 +176,38 @@ class Photo
 		}   
 	}
 
+	public function setEstSupprimee($Supp)
+	{
+		$Supp = (int) $Supp;
+		if ($Supp > 0)
+		{
+			$this->_estsupprimee = $Supp;
+		}	
+	}
 
+	public function setProprietaire($Pro)
+	{
+		if (is_string($Pro))
+		{
+			$this->_proprietaire = $Pro;
+		}	
+	}
 
+	public function setDateCreation($Date)
+	{
+		if (is_string($Date))
+		{
+			$this->_date_creation = $Date;
+		}	
+	}
+
+	public function setPrix($Prix)
+	{
+		$Prix = (int) $Prix;
+		if ($Prix > 0)
+		{
+			$this->_prix = $Prix;
+		}	
+	}
 }
 ?>

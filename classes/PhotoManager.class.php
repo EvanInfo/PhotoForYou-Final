@@ -21,7 +21,7 @@ class PhotoManager
      */
 	public function add(Photo $photo)
     {
-        $q = $this->_db->prepare('INSERT INTO photos (nomPhoto, taillePixelX, taillePixelY, poids, idUser, urlPhoto, categorie, description, estSupprimee) VALUES (:nomPhoto, :taillePixelX, :taillePixelY, :poids, :idUser, :urlPhoto, :categorie, :description, 0)');
+        $q = $this->_db->prepare('INSERT INTO photos (nomPhoto, taillePixelX, taillePixelY, poids, idUser, urlPhoto, categorie, description, estSupprimee, prix) VALUES (:nomPhoto, :taillePixelX, :taillePixelY, :poids, :idUser, :urlPhoto, :categorie, :description, 0, :prix)');
 
     
         $q->bindValue(':nomPhoto', $photo->getNomPhoto());
@@ -32,7 +32,8 @@ class PhotoManager
         $q->bindValue(':urlPhoto', $photo->getUrlPhoto());
         $q->bindValue(':categorie', $photo->getCategorie());
         $q->bindValue(':description', $photo->getDescription());
-    
+        $q->bindValue(':prix', $photo->getPrix());
+
         $q->execute();
     
         $photo->setId($this->_db->lastInsertId());

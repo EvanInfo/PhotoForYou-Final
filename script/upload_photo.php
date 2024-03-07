@@ -38,7 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'idUser' => $_SESSION['idUser'], 
             'urlPhoto' => '../images/vendre_stock/' . $identifiantUnique, 
             'categorie' => $categorieInfo['libelle'] . ',' . $resultat['libelle'], 
-            'description'=> $_POST['description']
+            'description'=> $_POST['description'],
+            'prix' => isset($_POST['prix']) ? $_POST['prix'] : 0, 
         ];
 
         
@@ -61,4 +62,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: ../pages/vendre.php");
     exit();
 }
+require_once '../include/piedDePage.inc.php'; 
 ?>

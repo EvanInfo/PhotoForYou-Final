@@ -3,7 +3,8 @@
     <div class="container text-center custom-margin-top-6">
         <h2>Téléversement de photo</h2>
         
-        <form id="upload-form" action="../script/upload_photo.php" method="post" enctype="multipart/form-data">
+        <form id="upload-form" action="../script/upload_photo.php" method="post" enctype="multipart/form-data" onsubmit="return Valide(event)" novalidate>
+
             <label for="photo">Sélectionner une photo :</label>
             <input type="file" name="photo" id="photo" accept="image/*" class="photo">
             <br>
@@ -13,8 +14,11 @@
             <label for="description">Description de la photo :</label>
             <textarea name="description" id="description"></textarea>
             <br>
-            <input type="submit" value="Téléverser la photo">
             <br>
+            
+            <label for="prix">Prix :</label>
+            <input type="number" name="prix" id="prix" step="0.01" placeholder="Entrez le prix" required>
+
             <label for="categorie">Catégorie :</label>
             <select name="categorie" id="categorie">
             <?php
@@ -31,6 +35,9 @@
 
             </select>
             <br>
+            <input type="submit" id="submit-button" value="Téléverser la photo">
+
+
             <?php
                     /*
                     // Afficher le tableau
@@ -50,5 +57,6 @@
         }
         ?>
     </div>
+    
 </body>
 <?php include ("../include/piedDePage.inc.php");?>
