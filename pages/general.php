@@ -43,6 +43,7 @@ include ("../include/entete.inc.php");
         echo '<div class="card-body">';
         echo '<h5 class="card-title">' . $photos['nomPhoto'] . '</h5>';
         echo '<p class="card-text">' . $photos['description'] . '</p>';
+        echo '<p class="card-text">'."Prix ". $photos['prix'] . "€" . '</p>';
         echo '</div>';
         
         echo '</div>';
