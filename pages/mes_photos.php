@@ -1,12 +1,15 @@
 <?php
 include ("../include/entete.inc.php");
+
 ?>
+
 
 <form method="post" action="../script/choix_categorie.php" id="categorieForm">
         <label for="categorie">Catégorie :</label>
         <select name="categorie" id="categorie" class="btn btn-secondary dropdown-toggle dropdown-nouveautes" onchange="submitForm()">
+        
             <?php
-            $listeCategorie = $categorieManager->getCategorie(1);
+            $listeCategorie = $categorieManager->getCategorie(2);
 
             // Si une catégorie est passée dans le paramètre GET, affichez cette catégorie en premier
             $categorieActuelle = isset($_GET['categorie']) ? htmlspecialchars($_GET['categorie']) : null;
@@ -25,11 +28,12 @@ include ("../include/entete.inc.php");
 
 <div class="row custom-margin-top-6">
     <?php
+    $idUser = $_SESSION['idUser'];
     if (isset($_GET['categorie'])) {
         $categorie = htmlspecialchars($_GET['categorie']);
-        $photo = $photoManager->affichePlusieursPhotos($categorie, 'Les nouveautes');
+        $photo = $photoManager->affichePlusieursPhotosById($categorie, $idUser);
     } else {
-        $photo = $photoManager->affichePhotos('Les nouveautes');
+        $photo = $photoManager->affichePhotosByIdUser($idUser);
     }
     ?>
 
@@ -44,13 +48,14 @@ include ("../include/entete.inc.php");
         echo '<div class="card-body">';
         echo '<h5 class="card-title">' . $photos['nomPhoto'] . '</h5>';
         echo '<p class="card-text">' . $photos['description'] . '</p>';
-        echo '<p class="card-text">'."Prix ". $photos['prix'] . "€" . '</p>';
-
+        echo '<p class="card-text">Prix ' . $photos['prix'] . '€</p>';
         echo '</div>';
+
         
         echo '</div>';
         echo '</div>';
     }
+        echo '</div>';
     ?>
 </div>
 

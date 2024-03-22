@@ -124,6 +124,54 @@ class PhotoManager
         }
     }
 
+    public function affichePhotosByIdUser($idUser)
+    {
+        try {
+            // Requête pour obtenir des photos en fonction de la catégorie
+            $q = $this->_db->prepare('SELECT * FROM photos WHERE idUser = :idUser');
+            
+            // Utilisation correcte de bindValue
+            $q->bindValue(':idUser', $idUser, PDO::PARAM_INT);
+            
+            $q->execute();
+
+            // Récupération de toutes les lignes (fetchAll) au lieu d'une seule ligne (fetch)
+            $result = $q->fetchAll(PDO::FETCH_ASSOC);
+
+            // Fermeture du curseur
+            $q->closeCursor();
+
+            return $result;
+        } catch (PDOException $e) {
+            // Gérer les erreurs PDO ici
+            throw new Exception("Erreur lors de la récupération des photos : " . $e->getMessage());
+        }
+    }
+
+    public function affichePlusieursPhotosById($categorie, $idUser)
+    {
+        try {
+            // Requête pour obtenir des photos en fonction de la catégorie, de l'autre condition et de l'idUser
+            $q = $this->_db->prepare('SELECT * FROM photos WHERE categorie LIKE :categorie AND idUser = :idUser');
+            
+            // Utilisation de bindValue au lieu de bindParam pour éviter la nécessité de passer par référence
+            $q->bindValue(':categorie', '%' . $categorie . '%', PDO::PARAM_STR);
+            $q->bindValue(':idUser', $idUser, PDO::PARAM_INT);
+            
+            $q->execute();
+
+            // Récupération de toutes les lignes (fetchAll) au lieu d'une seule ligne (fetch)
+            $result = $q->fetchAll(PDO::FETCH_ASSOC);
+
+            // Fermeture du curseur
+            $q->closeCursor();
+
+            return $result;
+        } catch (PDOException $e) {
+            // Gérer les erreurs PDO ici
+            throw new Exception("Erreur lors de la récupération des photos : " . $e->getMessage());
+        }
+    }
 
 
 

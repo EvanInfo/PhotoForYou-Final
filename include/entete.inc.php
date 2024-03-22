@@ -22,6 +22,7 @@
   $manager = new UserManager($db);
   $photoManager = new PhotoManager($db);
   $categorieManager = new CategorieManager($db);
+  $menuManager = new MenuManager($db);
 
   if (isset($_POST['deconnexion']))
   {
@@ -40,6 +41,7 @@
 	<!-- Liaison au fichier css de Bootstrap -->
 	<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
   <link href="../bootstrap/css/style.css" rel="stylesheet">
+  
 	<style>
 		.carousel-item
 		{

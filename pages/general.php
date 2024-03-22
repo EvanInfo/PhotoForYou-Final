@@ -2,7 +2,7 @@
 include ("../include/entete.inc.php");
 ?>
 
-<form method="post" action="../script/choix_categorie_general.php" id="categorieForm">
+<form method="post" action="../script/choix_categorie.php" id="categorieForm">
         <label for="categorie">Catégorie :</label>
         <select name="categorie" id="categorie" class="btn btn-secondary dropdown-toggle dropdown-nouveautes" onchange="submitForm()">
             <?php
@@ -19,6 +19,8 @@ include ("../include/entete.inc.php");
             }
             ?>
         </select>
+        <!-- Permet de récupérer la page actuelle pour les scripts catégorie-->
+        <input type="hidden" name="PageActuelle" value="<?php echo basename($_SERVER['SCRIPT_NAME']); ?>">
     </form>
 
 

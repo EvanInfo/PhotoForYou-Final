@@ -2,6 +2,7 @@
 	include ("../include/entete.inc.php");
 	echo generationEntete("Page des utilisateurs", "Bonjour ".$_SESSION['NomUtilisateur']);
 	echo ("Bonjour ".$_SESSION['TypeUtilisateur']);
+	//echo ("L'ID de l'utilisateur actuel est : " . $_SESSION['idUser']);
 	//echo ("Bonjour ".$_SESSION['idUser']);
 	/*$sonType = 'visiteur'; // Remplacez par la valeur appropriée
 	$menuItems = $manager->getMenu($sonType);
