@@ -19,6 +19,7 @@
   }
   spl_autoload_register('chargerClasse');
 
+  
   $manager = new UserManager($db);
   $photoManager = new PhotoManager($db);
   $categorieManager = new CategorieManager($db);

@@ -41,8 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'description'=> $_POST['description'],
             'prix' => isset($_POST['prix']) ? $_POST['prix'] : 0, 
         ];
-
-        
         $photoManager->addPhoto($photoData);
         
         // Téléverser le fichier sur le serveur

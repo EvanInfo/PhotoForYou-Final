@@ -38,6 +38,8 @@ class PhotoManager
     
         $photo->setId($this->_db->lastInsertId());
     }
+    
+
         
    /**
      * Récupère des photos de la base de données en fonction de la catégorie spécifiée.
@@ -46,6 +48,7 @@ class PhotoManager
      * @return array Un tableau de tableaux associatifs représentant les photos récupérées.
      * @throws Exception S'il y a une erreur lors du processus de récupération.
      */
+    
     public function getPhotoSupprimee()
     {
         try {
@@ -65,7 +68,21 @@ class PhotoManager
         }
     }
     
-        
+    
+    public function SupprimerPhoto($idPhotos)
+    {
+        try
+        {
+            $q = $this->_db->prepare('UPDATE photos SET estSupprimee = 1 WHERE idPhoto = :idPhoto');
+            $q->bindValue(':idPhoto', $idPhotos, PDO::PARAM_INT);
+            $q->execute();
+            
+        } catch (PDOException $e) {
+            // Gérer les erreurs PDO ici
+            throw new Exception("Erreur lors de la suppréssion des photos : " . $e->getMessage());
+        }
+    }
+
     /**
      * Récupère et affiche les photos de la base de données en fonction de la catégorie spécifiée.
      *

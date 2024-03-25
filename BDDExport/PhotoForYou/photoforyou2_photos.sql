@@ -46,7 +46,7 @@ CREATE TABLE `photos` (
 
 LOCK TABLES `photos` WRITE;
 /*!40000 ALTER TABLE `photos` DISABLE KEYS */;
-INSERT INTO `photos` VALUES (85,'Dépôt',1700,672,107642,'185','../images/vendre_stock/185_65f1dbb64a','Bâtiment','Image d\'un dépôt du sud de la France',0,NULL,'2024-03-13 18:00:38',50),(86,'Robot Humain',976,549,45845,'185','../images/vendre_stock/185_65f1dc136d','Portrait ','Robot a l\'apparence présenté lors d\'un salon.',0,NULL,'2024-03-13 18:02:11',25),(87,'Université Paul Sabatier',1632,1224,299553,'185','../images/vendre_stock/185_65f1dc5301','Bâtiment','Photo du bâtiment principale de l\'université ',0,NULL,'2024-03-13 18:03:15',17),(88,'Caserne ',600,392,39048,'186','../images/vendre_stock/186_65fdd1cd14','Bâtiment,Les nouveautes','Une caserne de pompier',0,NULL,'2024-03-22 19:45:33',50);
+INSERT INTO `photos` VALUES (85,'Intérieur de caserne ',612,408,57329,'185','../images/vendre_stock/185_6601c2fed4','Bâtiment,Les nouveautes','Un image représentant l\'intérieur d\'une caser',0,NULL,'2024-03-13 18:00:38',50),(86,'Camion avec pompier',612,411,74305,'185','../images/vendre_stock/185_6601c34fc8','Bâtiment,Les nouveautes','On peut apercevoir un camion avec des pompier',1,NULL,'2024-03-13 18:02:11',25),(87,'Université Paul Sabatier',1632,1224,299553,'185','../images/vendre_stock/185_65f1dc5301','Bâtiment','Photo du bâtiment principale de l\'université ',0,NULL,'2024-03-13 18:03:15',17),(88,'Caserne ',600,392,39048,'186','../images/vendre_stock/186_65fdd1cd14','Bâtiment','Une caserne de pompier',0,NULL,'2024-03-22 19:45:33',50);
 /*!40000 ALTER TABLE `photos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -77,4 +77,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-22 19:57:34
+-- Dump completed on 2024-03-25 19:34:42
