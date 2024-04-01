@@ -53,7 +53,7 @@ include ("../include/entete.inc.php");
                 echo '<p class="card-text">' . $photos['description'] . '</p>';
                 echo '<p class="card-text">'."Prix ". $photos['prix'] . "€" . '</p>';
                 // Section sur le boutton de suppression 
-                echo '<form action="supprimer_photo.php" method="post">';
+                echo '<form action="../script/supprimer_photo.php" method="post">';
                     echo '<input type="hidden" name="idPhoto" value="' . $photos['idPhoto'] . '">';
                     echo '<input type="hidden" name="urlPhoto" value="' . $photos['urlPhoto'] . '">';
                 echo '<button type="submit" class="btn btn-secondary" onclick="return confirm(\'Êtes-vous sûr de vouloir supprimer cette photo ?\')">Supprimer</button>';

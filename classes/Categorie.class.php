@@ -39,20 +39,20 @@ class Categorie
 
 	public function setId($id)
 	{
-		$id = (int) $id;
-		if ($id > 0)
-		{
-			$this->_idCategorie = $id;
-		}	
+		if (is_numeric($id) && $id > 0) {
+			$this->_idCategorie = (int) $id;
+		} else {
+			throw new InvalidArgumentException("Identifiant invalide");
+		}
 	}
 
-	
-	public function setlibelle($libelle)
+	public function setLibelle($libelle)
 	{
-		if (is_string($libelle))
-		{
-			$this->_libelle = $libelle;
-		}	
+		if (is_string($libelle) && strlen($libelle) <= 25) {  
+			$this->_libelle = htmlspecialchars($libelle);  
+		} else {
+			throw new InvalidArgumentException("Libellé invalide");
+		}
 	}
 
 

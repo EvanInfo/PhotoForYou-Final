@@ -51,6 +51,75 @@ class CategorieManager
         return $categorieInfo;
     }
 
+    public function afficherCatégorie()
+    {
+        $q = $this->_db->prepare('SELECT idCategorie, libelle FROM categorie');
+        $q->execute();
+
+        $categorieInfo = $q->fetchAll(PDO::FETCH_ASSOC);
+
+        // Fermeture du curseur
+        $q->closeCursor();
+
+        return $categorieInfo;
+    }
+
+    public function ajouterCategorie(Categorie $categorie)
+    {
+        $libelle = $categorie->getLibelle();
+
+        // Obtient le dernier ID utilisé dans la table des catégories
+        $dernierId = $this->dernierIdCategorie();
+
+        // Génère un nouvel ID unique
+        $nouvelId = $dernierId + 1;
+
+        $requete = $this->_db->prepare("INSERT INTO categorie (idCategorie, libelle) VALUES (:idcategorie, :libelle)");
+
+        try {
+            $requete->bindParam(':idcategorie', $nouvelId, PDO::PARAM_INT);
+            $requete->bindParam(':libelle', $libelle, PDO::PARAM_STR);
+
+            // Exécute la requête d'insertion
+            $requete->execute();
+
+            return $nouvelId; // Retourne le nouvel ID de la catégorie
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+            return false;
+        }
+    }
+
+
+    public function supprimerCategorie($idCategorie)
+    {
+        $q = $this->_db->prepare("DELETE FROM categorie WHERE idCategorie = :idCategorie");
+
+        try {
+            $q->bindParam(':idCategorie', $idCategorie, PDO::PARAM_INT);
+
+            return $q->execute();
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+            return false;
+        }
+    }
+
+    
+    private function dernierIdCategorie()
+    {
+        $requete = $this->_db->prepare("SELECT MAX(idCategorie) AS dernierId FROM categorie");
+        $requete->execute();
+        $ligne = $requete->fetch(PDO::FETCH_ASSOC);
+
+        if ($ligne && isset($ligne['dernierId'])) {
+            return (int)$ligne['dernierId'];
+        } else {
+            return 0; // Si aucune catégorie n'a été ajoutée, retourne 0
+        }
+    }
+
+
     public function setDB(PDO $db)
     {
         $this->_db = $db;

@@ -1,64 +1,68 @@
 <?php
 require_once '../include/entete.inc.php'; 
 
-// Permet le transfert des photos vers la base de donnée a partir du formulaire
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    
-    $categorieId = $_POST['categorie'];
-
-    // Préparer une requête pour récupérer le libellé de la catégorie depuis la base de données (utilisation de procédure stockée)
-    $requete = $db->prepare("CALL GetLibelleCategorie()");
-
-    $requete->execute();
-
-    // Récupérer les résultats de la requête
-    $resultat = $requete->fetch(PDO::FETCH_ASSOC);
-
-    
-    $requete->closeCursor();
-
-    if (isset($_POST['nomphoto'], $_POST['categorie'], ) && !empty($_POST['nomphoto'])) {
-
+   
+    if (isset($_POST['nomphoto'], $_POST['categorie'], $_FILES['photo']) && !empty($_POST['nomphoto'])) {
+      
+        $categorieId = $_POST['categorie'];
+        
+       
         $categorieInfo = $categorieManager->getCategorieById($categorieId);
 
-        $nomPhotoFormulaire = isset($_POST['nomphoto']) ? $_POST['nomphoto'] : '';
-
-        $identifiantUnique = substr(uniqid(), 0, 10); // Limite la longueur à 10 caractères
-
-        $identifiantUnique = $_SESSION['idUser'] . '_' . $identifiantUnique;
-
+        // Récupération de la catégorie Les nouveautés
+        $requete = $db->prepare("CALL GetLibelleCategorie()");
+        $requete->execute();
+        $resultat = $requete->fetch(PDO::FETCH_ASSOC);
+        $requete->closeCursor();
         
-        // Préparer les données de la photo pour l'ajout à la base de données
+        // Génération d'un identifiant unique pour l'image
+        $identifiantUnique = $_SESSION['idUser'] . '_' . substr(uniqid(), 0, 10);
+        
+       
+        $urlPhoto = '../images/vendre_stock/' . $identifiantUnique;
+        
+        // Récupération des informations sur l'image
+        $taillePixelX = getimagesize($_FILES['photo']['tmp_name'])[0];
+        $taillePixelY = getimagesize($_FILES['photo']['tmp_name'])[1];
+        $poids = $_FILES['photo']['size'];
+        
+        // Préparation des données de la photo pour l'ajout à la base de données
         $photoData = [
-            'nomPhoto' =>  $nomPhotoFormulaire,
-            'taillePixelX' => getimagesize($_FILES['photo']['tmp_name'])[0],
-            'taillePixelY' => getimagesize($_FILES['photo']['tmp_name'])[1],
-            'poids' => $_FILES['photo']['size'],
+            'nomPhoto' =>  $_POST['nomphoto'],
+            'taillePixelX' => $taillePixelX,
+            'taillePixelY' => $taillePixelY,
+            'poids' => $poids,
             'idUser' => $_SESSION['idUser'], 
-            'urlPhoto' => '../images/vendre_stock/' . $identifiantUnique, 
+            'urlPhoto' => $urlPhoto, 
             'categorie' => $categorieInfo['libelle'] . ',' . $resultat['libelle'], 
             'description'=> $_POST['description'],
             'prix' => isset($_POST['prix']) ? $_POST['prix'] : 0, 
         ];
+        
+        
         $photoManager->addPhoto($photoData);
         
-        // Téléverser le fichier sur le serveur
-        move_uploaded_file($_FILES['photo']['tmp_name'], '../images/vendre_stock/' . $identifiantUnique);
+        // Téléversement du fichier sur le serveur
+        move_uploaded_file($_FILES['photo']['tmp_name'], $urlPhoto);
 
-        // Définir un message de succès et rediriger vers la page de vente
+       
         $_SESSION['success_message'] = "L'image a été transférée avec succès!";
         header("Location: ../pages/vendre.php");
+        exit(); 
     } else {
-        // Redirection avec un message d'erreur si le formulaire n'est pas correctement rempli
+       
         $_SESSION['error_message'] = "Veuillez remplir tous les champs du formulaire.";
         header("Location: ../pages/vendre.php");
-        exit();
+        exit(); 
     }
 } else {
-    // Redirection ou message d'erreur si le formulaire n'a pas été soumis
+    
     header("Location: ../pages/vendre.php");
-    exit();
+    exit(); 
 }
+
+
 require_once '../include/piedDePage.inc.php'; 
 ?>

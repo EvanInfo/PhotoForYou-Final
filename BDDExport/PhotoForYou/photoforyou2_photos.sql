@@ -37,7 +37,7 @@ CREATE TABLE `photos` (
   `date_creation` datetime DEFAULT NULL,
   `prix` int(11) NOT NULL,
   PRIMARY KEY (`idPhoto`)
-) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `photos` (
 
 LOCK TABLES `photos` WRITE;
 /*!40000 ALTER TABLE `photos` DISABLE KEYS */;
-INSERT INTO `photos` VALUES (85,'Intérieur de caserne ',612,408,57329,'185','../images/vendre_stock/185_6601c2fed4','Bâtiment,Les nouveautes','Un image représentant l\'intérieur d\'une caser',0,NULL,'2024-03-13 18:00:38',50),(86,'Camion avec pompier',612,411,74305,'185','../images/vendre_stock/185_6601c34fc8','Bâtiment,Les nouveautes','On peut apercevoir un camion avec des pompier',1,NULL,'2024-03-13 18:02:11',25),(87,'Université Paul Sabatier',1632,1224,299553,'185','../images/vendre_stock/185_65f1dc5301','Bâtiment','Photo du bâtiment principale de l\'université ',0,NULL,'2024-03-13 18:03:15',17),(88,'Caserne ',600,392,39048,'186','../images/vendre_stock/186_65fdd1cd14','Bâtiment','Une caserne de pompier',0,NULL,'2024-03-22 19:45:33',50);
+INSERT INTO `photos` VALUES (85,'Intérieur de caserne ',612,408,57329,'185','../images/vendre_stock/185_6601c2fed4','Bâtiment','Un image représentant l\'intérieur d\'une caser',0,NULL,'2024-03-13 18:00:38',50),(86,'Google Icone',512,512,21503,'185','../images/vendre_stock/185_660ac28a7b','Portrait ','Image de l\'icone google ',0,NULL,'2024-03-13 18:02:11',25),(87,'Université Paul Sabatier',1632,1224,299553,'185','../images/vendre_stock/185_65f1dc5301','Bâtiment','Photo du bâtiment principale de l\'université ',0,NULL,'2024-03-13 18:03:15',17),(88,'Caserne ',600,392,39048,'186','../images/vendre_stock/186_65fdd1cd14','Bâtiment','Une caserne de pompier',0,NULL,'2024-03-22 19:45:33',50),(89,'Filezila',1200,1200,55536,'185','../images/vendre_stock/185_660ac34680','Portrait ,Les nouveautes','Icone',0,NULL,'2024-04-01 16:23:02',10);
 /*!40000 ALTER TABLE `photos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -77,4 +77,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-25 19:34:42
+-- Dump completed on 2024-04-01 17:07:39

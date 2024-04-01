@@ -33,7 +33,7 @@ CREATE TABLE `users` (
   `Photo` varchar(145) DEFAULT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `mail_UNIQUE` (`Mail`)
-) ENGINE=InnoDB AUTO_INCREMENT=187 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (184,'Zucchiatti','Evan','client','evanzucchiatti@gmail.com','63a9f0ea7bb98050796b649e85481845',0,NULL),(185,'Zucchiatti','Evan','Photographe','evanzucchiatti63@gmail.com','63a9f0ea7bb98050796b649e85481845',0,NULL),(186,'Zucchiatti','Zoe','Photographe','evanzucchiatti1@gmail.com','63a9f0ea7bb98050796b649e85481845',0,NULL);
+INSERT INTO `users` VALUES (184,'Zucchiatti','Evan','client','evanzucchiatti@gmail.com','63a9f0ea7bb98050796b649e85481845',0,NULL),(185,'Zucchiatti','Evan','Photographe','evanzucchiatti63@gmail.com','63a9f0ea7bb98050796b649e85481845',0,NULL),(186,'Zucchiatti','Zoe','Photographe','evanzucchiatti1@gmail.com','63a9f0ea7bb98050796b649e85481845',0,NULL),(187,'Admin','Admin','admin','admin@gmail.com','63a9f0ea7bb98050796b649e85481845',0,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-25 19:34:43
+-- Dump completed on 2024-04-01 17:07:40
