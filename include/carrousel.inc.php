@@ -23,5 +23,10 @@
 <div class="jumbotron ">
     <p class="lead">Moins de temps à chercher. Plus de résultats.</p>
     <p class="lead">Découvrez les images qui vous aideront à vous démarquer.</p>
-    <p><a class="btn btn-primary btn-lg" href="inscription.php" role="button">Inscrivez vous !</a></p>
+    <?php
+    if (isset($_SESSION['login']) && $_SESSION['login'] == false) 
+    {
+        echo'<p><a class="btn btn-primary btn-lg" href="inscription.php" role="button">Inscrivez vous !</a></p>';
+    }?>
+    
 </div>

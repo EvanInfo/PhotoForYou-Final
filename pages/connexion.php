@@ -1,5 +1,8 @@
 <?php
 include ("../include/entete.inc.php");
+if (isset($_SESSION['login']) && $_SESSION['login'] == true){
+  header('Location: ../pages/accueil.php');
+}
 if (isset($_POST['identifier']))
 {
   if ($utilisateur=$manager->getUser($_POST['mail']))

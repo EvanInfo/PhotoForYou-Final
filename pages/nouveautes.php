@@ -22,22 +22,23 @@ include ("../include/entete.inc.php");
         <input type="hidden" name="PageActuelle" value="<?php echo basename($_SERVER['SCRIPT_NAME']); ?>">
     </form>
 
+    <div class="container">
+        <div class="row custom-margin-top-6">
+            <?php
+            if (isset($_GET['categorie'])) {
+                $categorie = htmlspecialchars($_GET['categorie']);
+                $photo = $photoManager->affichePlusieursPhotos($categorie, 'Les nouveautes');
+            } else {
+                $photo = $photoManager->affichePhotos('Les nouveautes');
+            }
+            ?>
 
-<div class="row custom-margin-top-6">
-    <?php
-    if (isset($_GET['categorie'])) {
-        $categorie = htmlspecialchars($_GET['categorie']);
-        $photo = $photoManager->affichePlusieursPhotos($categorie, 'Les nouveautes');
-    } else {
-        $photo = $photoManager->affichePhotos('Les nouveautes');
-    }
-    ?>
 
-
-    <?php
-        include('../script/affichage_Photos.php');
-    ?>
-</div>
+            <?php
+                include('../script/affichage_Photos.php');
+            ?>
+        </div>
+    </div>
 
 
 <?php

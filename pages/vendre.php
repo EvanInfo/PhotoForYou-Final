@@ -1,4 +1,9 @@
-<?php include ("../include/entete.inc.php"); ?>
+<?php include ("../include/entete.inc.php"); 
+if (isset($_SESSION['login']) && $_SESSION['login'] == false){
+    header('Location: ../pages/connexion.php');
+}elseif (isset($_SESSION['login']) && $_SESSION['login'] == true && $_SESSION['TypeUtilisateur'] != "Photographe" && $_SESSION['TypeUtilisateur'] != "admin") {
+header('Location: ../pages/accueil.php');
+}?>
 <body>
     <div class="container text-center custom-margin-top-6">
         <h2>Téléversement de photo</h2>

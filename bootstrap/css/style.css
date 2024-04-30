@@ -39,10 +39,9 @@
 }
 
 .custom-img-size {
-    width: 20%; /* 100% de la largeur du conteneur parent */
-    height: 25vh; 
+    height: 200px;
     object-fit: cover; /* ou object-fit: contain; selon vos besoins */
-    cursor: pointer;
+
 }
 
 #upload-form {
@@ -130,4 +129,8 @@
 
 .categorie-table button:hover {
     background-color: #c82333;
+}
+
+.card-taille{
+    height: 200px; 
 }
