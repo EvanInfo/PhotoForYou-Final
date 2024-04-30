@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: photoforyou2
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.32-MariaDB
+-- Server version	5.5.5-10.4.28-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -39,7 +39,7 @@ CREATE TABLE `menu` (
 
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
-INSERT INTO `menu` VALUES (0,'Achat','achat.php','client'),(1,'Vendre','vendre.php','Photographe, admin'),(2,'Les plus populaire','populaire.php','visiteur, Photographe, client, admin'),(3,'Les nouveautés','nouveautes.php','visiteur, Photographe, client, admin'),(4,'Général','general.php','visiteur, Photographe, client, admin'),(5,'Mes Photos','mes_photos.php','Photographe'),(6,'Mes achats','mes_achats.php','client'),(7,'Page Admin','admin.php','admin');
+INSERT INTO `menu` VALUES (0,'Achat','achat.php','client, admin'),(1,'Vendre','vendre.php','Photographe, admin'),(2,'Les plus populaire','populaire.php','visiteur, Photographe, client, admin'),(3,'Les nouveautés','nouveautes.php','visiteur, Photographe, client, admin'),(4,'Général','general.php','visiteur, Photographe, client, admin'),(5,'Mes Photos','mes_photos.php','Photographe'),(6,'Mes achats','mes_achats.php','client'),(7,'Page Admin','admin.php','admin');
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-01 17:07:39
+-- Dump completed on 2024-04-30 16:51:59

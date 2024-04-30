@@ -23,7 +23,7 @@ include ("../include/entete.inc.php");
         <input type="hidden" name="PageActuelle" value="<?php echo basename($_SERVER['SCRIPT_NAME']); ?>">
     </form>
 
-    <div class="container">
+    <div class="container container-img">
         <div class="row custom-margin-top-6">
             <?php
             if (isset($_GET['categorie'])) {

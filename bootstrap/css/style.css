@@ -134,3 +134,26 @@
 .card-taille{
     height: 200px; 
 }
+
+.container-img {
+    max-width: 1500px; /* Vous pouvez ajuster la largeur maximale selon vos besoins */
+    margin: 0 auto;
+    
+  }
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajouter une ombre */
+    background-color: gray;
+  }
+
+.custom-img {
+    width: 375px; /* Ajustez la taille selon vos besoins */
+    height: 350px; /* Ajustez la taille selon vos besoins */
+}
+
+.scrollable-table {
+    max-height: 500px; /* Ajustez la hauteur selon vos besoins */
+}

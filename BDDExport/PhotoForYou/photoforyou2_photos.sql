@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: photoforyou2
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.32-MariaDB
+-- Server version	5.5.5-10.4.28-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,7 +29,7 @@ CREATE TABLE `photos` (
   `taillePixelY` int(11) NOT NULL,
   `poids` int(11) NOT NULL,
   `idUser` varchar(45) NOT NULL,
-  `urlPhoto` varchar(45) NOT NULL,
+  `urlPhoto` varchar(50) NOT NULL,
   `categorie` varchar(45) NOT NULL,
   `description` varchar(45) DEFAULT NULL,
   `estSupprimee` tinyint(4) DEFAULT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE `photos` (
   `date_creation` datetime DEFAULT NULL,
   `prix` int(11) NOT NULL,
   PRIMARY KEY (`idPhoto`)
-) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,27 +46,9 @@ CREATE TABLE `photos` (
 
 LOCK TABLES `photos` WRITE;
 /*!40000 ALTER TABLE `photos` DISABLE KEYS */;
-INSERT INTO `photos` VALUES (85,'Intérieur de caserne ',612,408,57329,'185','../images/vendre_stock/185_6601c2fed4','Bâtiment','Un image représentant l\'intérieur d\'une caser',0,NULL,'2024-03-13 18:00:38',50),(86,'Google Icone',512,512,21503,'185','../images/vendre_stock/185_660ac28a7b','Portrait ','Image de l\'icone google ',0,NULL,'2024-03-13 18:02:11',25),(87,'Université Paul Sabatier',1632,1224,299553,'185','../images/vendre_stock/185_65f1dc5301','Bâtiment','Photo du bâtiment principale de l\'université ',0,NULL,'2024-03-13 18:03:15',17),(88,'Caserne ',600,392,39048,'186','../images/vendre_stock/186_65fdd1cd14','Bâtiment','Une caserne de pompier',0,NULL,'2024-03-22 19:45:33',50),(89,'Filezila',1200,1200,55536,'185','../images/vendre_stock/185_660ac34680','Portrait ,Les nouveautes','Icone',0,NULL,'2024-04-01 16:23:02',10);
+INSERT INTO `photos` VALUES (85,'Intérieur de caserne ',612,408,57329,'185','../images/vendre_stock/185_6601c2fed4','Bâtiment','Un image représentant l\'intérieur d\'une caser',0,NULL,'2024-03-13 18:00:38',50),(86,'Google Icone',512,512,21503,'185','../images/vendre_stock/185_660ac28a7b','Portrait ','Image de l\'icone google ',0,NULL,'2024-03-13 18:02:11',25),(87,'Université Paul Sabatier',1632,1224,299553,'185','../images/vendre_stock/185_65f1dc5301','Bâtiment','Photo du bâtiment principale de l\'université ',0,NULL,'2024-03-13 18:03:15',17),(88,'Caserne ',600,392,39048,'186','../images/vendre_stock/186_65fdd1cd14','Bâtiment','Une caserne de pompier',0,NULL,'2024-03-22 19:45:33',50),(89,'Filezila',1200,1200,55536,'185','../images/vendre_stock/185_660ac34680','Portrait ','Icone',0,NULL,'2024-04-01 16:23:02',10),(90,'Paysage',1500,1000,174828,'186','../images/vendre_stock/186_6630fe12b7','Portrait ,Les nouveautes','Une homme observant une montagne',0,NULL,'2024-04-30 16:20:02',50),(91,'Sukuna',293,172,9592,'187','../images/vendre_stock/187_6631007c72.jpg','Portrait ,Les nouveautes','Sukuna effectuant son extension de territoire',0,NULL,'2024-04-30 16:30:20',666);
 /*!40000 ALTER TABLE `photos` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `photoforyou2`.`photos_BEFORE_INSERT` BEFORE INSERT ON `photos` FOR EACH ROW
-BEGIN
-	SET NEW.date_creation = NOW();
-END */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -77,4 +59,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-01 17:07:39
+-- Dump completed on 2024-04-30 16:51:59

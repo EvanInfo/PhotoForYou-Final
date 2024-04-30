@@ -24,15 +24,15 @@ class PhotoManager
         $q = $this->_db->prepare('INSERT INTO photos (nomPhoto, taillePixelX, taillePixelY, poids, idUser, urlPhoto, categorie, description, estSupprimee, prix) VALUES (:nomPhoto, :taillePixelX, :taillePixelY, :poids, :idUser, :urlPhoto, :categorie, :description, 0, :prix)');
 
     
-        $q->bindValue(':nomPhoto', $photo->getNomPhoto());
-        $q->bindValue(':taillePixelX', $photo->getTaillePixelX());
-        $q->bindValue(':taillePixelY', $photo->getTaillePixelY());
-        $q->bindValue(':poids', $photo->getPoids());
-        $q->bindValue(':idUser', $photo->getIdUser());
-        $q->bindValue(':urlPhoto', $photo->getUrlPhoto());
-        $q->bindValue(':categorie', $photo->getCategorie());
-        $q->bindValue(':description', $photo->getDescription());
-        $q->bindValue(':prix', $photo->getPrix());
+        $q->bindValue(':nomPhoto', $photo->getNomPhoto(), PDO::PARAM_STR);
+        $q->bindValue(':taillePixelX', $photo->getTaillePixelX(), PDO::PARAM_INT);
+        $q->bindValue(':taillePixelY', $photo->getTaillePixelY(), PDO::PARAM_INT);
+        $q->bindValue(':poids', $photo->getPoids(), PDO::PARAM_INT);
+        $q->bindValue(':idUser', $photo->getIdUser(), PDO::PARAM_INT);
+        $q->bindValue(':urlPhoto', $photo->getUrlPhoto(), PDO::PARAM_STR);
+        $q->bindValue(':categorie', $photo->getCategorie(), PDO::PARAM_STR);
+        $q->bindValue(':description', $photo->getDescription(), PDO::PARAM_STR);
+        $q->bindValue(':prix', $photo->getPrix(), PDO::PARAM_INT);
 
         $q->execute();
     

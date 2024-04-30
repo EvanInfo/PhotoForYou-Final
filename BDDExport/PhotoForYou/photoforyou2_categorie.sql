@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: photoforyou2
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.32-MariaDB
+-- Server version	5.5.5-10.4.28-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -35,7 +35,7 @@ CREATE TABLE `categorie` (
 
 LOCK TABLES `categorie` WRITE;
 /*!40000 ALTER TABLE `categorie` DISABLE KEYS */;
-INSERT INTO `categorie` VALUES (1,'Les plus populaire'),(2,'Les nouveautes'),(3,'Noël'),(4,'Nouvelle An'),(5,'Bâtiment'),(6,'Portrait ');
+INSERT INTO `categorie` VALUES (1,'Les plus populaire'),(2,'Les nouveautes'),(3,'Noël'),(4,'Nouvelle An'),(5,'Bâtiment'),(6,'Portrait '),(7,'Paysage'),(8,'Véhicule');
 /*!40000 ALTER TABLE `categorie` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-01 17:07:39
+-- Dump completed on 2024-04-30 16:51:58
