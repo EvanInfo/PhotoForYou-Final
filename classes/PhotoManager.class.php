@@ -115,6 +115,25 @@ class PhotoManager
         }
     }
 
+    public function affichePhotoByID($idPhoto)
+    {
+        try {
+            // Requête pour obtenir des photos en fonction de la catégorie et de l'autre condition
+            $q = $this->_db->prepare('SELECT * FROM photos WHERE idPhoto = :idPhoto');
+            $q->bindValue(':idPhoto', $idPhoto, PDO::PARAM_INT);
+            
+            $q->execute();
+
+            $result = $q->fetchAll(PDO::FETCH_ASSOC);
+
+            $q->closeCursor();
+
+            return $result;
+        } catch (PDOException $e) {
+            // Gérer les erreurs PDO ici
+            throw new Exception("Erreur lors de la récupération de la photo : " . $e->getMessage());
+        }
+    }
 
     public function affichePlusieursPhotos($categorie, $autreCondition)
     {

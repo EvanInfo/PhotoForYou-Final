@@ -16,6 +16,7 @@
                 $photoManager->SupprimerPhoto($idPhoto);
                 echo '<p class="custom-margin-top-6">La photo a été supprimée avec succès.</p>';
                 unlink( $urlPhoto);
+                header("Location: ../pages/general.php");
             } catch (Exception $e) {
                 //echo "<p class='custom-margin-top-6'>Une erreur est survenue : " . $e->getMessage() . "</p>";
                 echo '<p class="custom-margin-top-6">Aucune photo a supprimée.</p>';

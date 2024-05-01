@@ -1,15 +1,17 @@
 <?php
-    foreach ($photo as $photos) {
+foreach ($photo as $photos) {
 
-        if ($photos['estSupprimee'] == 0)
-        {
-            echo'<div class="col-md-3 mb-3">';
-                echo '<div class="image img-fluid custom-img"><img src="' . $photos['urlPhoto'] . '"></div>';
-            echo'</div>';        
+    if ($photos['estSupprimee'] == 0)
+    {
+        // Utilisation de l'ID de la photo pour créer un ID unique pour chaque formulaire
+        $formID = "photoForm_" . $photos['idPhoto'];
 
-            //echo "L'identifiant de la photo est : " . $photos['idPhoto'];
-
-        }
-        
+        echo '<div class="col-md-3 mb-3">';
+            echo '<form id="' . $formID . '" action="../pages/descriptionPhoto.php" method="post">';
+                echo '<input type="hidden" name="idPhoto" value="' . $photos['idPhoto'] . '">';
+                    echo '<div class="image img-fluid custom-img" onclick="valideForm(\'' . $formID . '\')"><img src="' . $photos['urlPhoto'] . '"></div>';
+            echo '</form>';
+        echo '</div>';
     }
+}
 ?>

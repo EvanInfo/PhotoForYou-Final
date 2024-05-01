@@ -147,13 +147,30 @@
     border-radius: 10px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajouter une ombre */
     background-color: gray;
-  }
+}
 
 .custom-img {
     width: 375px; /* Ajustez la taille selon vos besoins */
     height: 350px; /* Ajustez la taille selon vos besoins */
 }
 
+.custom-img:hover {
+    cursor: pointer;
+}
 .scrollable-table {
     max-height: 500px; /* Ajustez la hauteur selon vos besoins */
+}
+
+.img-description {
+    width: 100%; 
+    max-width: none;
+    object-fit: cover;
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajouter une ombre */
+    background-color: gray; 
+}
+
+.image-container {
+    max-width: 100%; 
+    height: auto; 
 }
