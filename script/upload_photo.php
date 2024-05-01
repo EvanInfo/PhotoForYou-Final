@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'taillePixelY' => $taillePixelY,
             'poids' => $poids,
             'idUser' => $_SESSION['idUser'], 
-            'urlPhoto' => $urlPhoto, 
+            'urlPhoto' => $urlPhotoAvecExtension, 
             'categorie' => $categorieInfo['libelle'] . ',' . $resultat['libelle'], 
             'description'=> $_POST['description'],
             'prix' => isset($_POST['prix']) ? $_POST['prix'] : 0, 
