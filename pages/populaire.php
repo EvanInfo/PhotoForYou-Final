@@ -3,7 +3,7 @@ include ("../include/entete.inc.php");?>
 
 
 
-<div class="container text-center custom-margin-top-6">
+<div class="container text-center custom-margin-top-6 container-img">
     <?php
     $photo = $photoManager->affichePhotos('Les plus populaire');
     

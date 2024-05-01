@@ -1,6 +1,9 @@
 <?php
 include ("../include/entete.inc.php");
 
+if (isset($_SESSION['login']) && $_SESSION['login'] == false){
+    header('Location: ../pages/connexion.php');
+  }
 ?>
 
 
@@ -48,7 +51,7 @@ include ("../include/entete.inc.php");
                 echo '<img class="card-img-top custom-img-size d-block w-100" src="' . $photos['urlPhoto'] . '" alt="Photo">';
                 
                 // Ajouter le nom et la description ici
-                echo '<div class="card-body">';
+                echo '<div class="card-body card-taille">';
                 echo '<h5 class="card-title">' . $photos['nomPhoto'] . '</h5>';
                 echo '<p class="card-text">' . $photos['description'] . '</p>';
                 echo '<p class="card-text">'."Prix ". $photos['prix'] . "€" . '</p>';

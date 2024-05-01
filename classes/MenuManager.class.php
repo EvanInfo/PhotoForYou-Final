@@ -28,7 +28,11 @@ class MenuManager
 		// Ajoutez des déclarations de débogage ici
 		// echo "Fonction getMenu appelée avec sonType = $sonType";
 
-		$q = $this->_db->prepare('SELECT nomMenu, Lien FROM menu WHERE Habilitation = :sonType and idMenu > 2');
+		if ($sonType == 'Admin') {
+			$q = $this->_db->prepare('SELECT nomMenu, Lien FROM menu WHERE idMenu > 5');
+		} else {
+			$q = $this->_db->prepare('SELECT nomMenu, Lien FROM menu WHERE Habilitation = :sonType and idMenu > 2');
+		}
 		$q->execute([':sonType' =>  $sonType ]);
 		$menuItems = $q->fetchAll(PDO::FETCH_ASSOC);
 

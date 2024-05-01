@@ -20,9 +20,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Génération d'un identifiant unique pour l'image
         $identifiantUnique = $_SESSION['idUser'] . '_' . substr(uniqid(), 0, 10);
         
-       
+        // Gestion de l'image dans la base
         $urlPhoto = '../images/vendre_stock/' . $identifiantUnique;
         
+        $typeImage = exif_imagetype($urlPhoto);
+
+       
+        $extension = '';
+        switch ($typeImage) {
+            case IMAGETYPE_GIF:
+                $extension = '.gif';
+                break;
+            case IMAGETYPE_JPEG:
+                $extension = '.jpg';
+                break;
+            case IMAGETYPE_PNG:
+                $extension = '.png';
+                break;
+           
+            default:
+                $extension = '.jpg';
+                break;
+        }
+
+        $urlPhotoAvecExtension = $urlPhoto . $extension;
+                
         // Récupération des informations sur l'image
         $taillePixelX = getimagesize($_FILES['photo']['tmp_name'])[0];
         $taillePixelY = getimagesize($_FILES['photo']['tmp_name'])[1];
@@ -45,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $photoManager->addPhoto($photoData);
         
         // Téléversement du fichier sur le serveur
-        move_uploaded_file($_FILES['photo']['tmp_name'], $urlPhoto);
+        move_uploaded_file($_FILES['photo']['tmp_name'],  $urlPhotoAvecExtension);
 
        
         $_SESSION['success_message'] = "L'image a été transférée avec succès!";
