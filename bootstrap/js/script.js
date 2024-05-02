@@ -89,7 +89,12 @@ function Valide(event) {
     return true; // Permet l'envoi du formulaire si toutes les validations sont réussies
 }
 
-// fonction pour valider le formulaire vers de affichage_Photos.php
+
 function valideForm(formID) {
     document.getElementById(formID).submit();
 }
+
+// Ajout de l'écouteur d'événements après avoir défini la fonction valideForm
+document.getElementById(formID).addEventListener('click', function() {
+    valideForm(formID);
+});
