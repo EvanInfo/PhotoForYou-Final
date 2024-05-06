@@ -1,6 +1,7 @@
 <?php
 require_once '../include/entete.inc.php'; 
 
+// Permet l'ajout d'une photo a la base de donnée
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    

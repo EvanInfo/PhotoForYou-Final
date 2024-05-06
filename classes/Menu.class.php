@@ -1,5 +1,12 @@
 <?php
 class Menu
+
+/**
+ * Classe Menu
+ * 
+ * Cette classe représente les menus de l'application.
+ * Elle permet de gérer les informations relatives menu.
+ */
 {
 	// Attributs
 	private $_idMenu;

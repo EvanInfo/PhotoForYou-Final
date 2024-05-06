@@ -1,5 +1,7 @@
 <?php
     include ("../include/entete.inc.php");
+
+    // Permet la suppression d'une catégorie
 ?>
 <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') 

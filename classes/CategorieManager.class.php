@@ -1,5 +1,12 @@
 <?php
 class CategorieManager
+
+/**
+ * Classe CategorieManager
+ * 
+ * Il s'agit du manager de la classe categorie.
+ * Elle permet de gérer les methodes relatives à la classe categorie.
+ */
 {
     private $_db;
 

@@ -1,6 +1,6 @@
 <?php
 require_once '../include/entete.inc.php'; 
-
+// Script permettant l'ajout de nouvelle catégorie pour les photos
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['nouvelleCategorie']) && !empty($_POST['nouvelleCategorie'])) {

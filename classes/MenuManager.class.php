@@ -1,5 +1,11 @@
 <?php
 class MenuManager
+/**
+ * Classe MenuManager
+ * 
+ * Il s'agit du manager de la classe menu.
+ * Elle permet de gérer les methodes relatives à la classe menu.
+ */
 {
 	private $_db;
 

@@ -1,5 +1,12 @@
 <?php
 class User
+
+/**
+ * Classe User
+ * 
+ * Cette classe représente les informations d'un utilisateur.
+ */
+
 {
 	// Attributs
 	private $_id;

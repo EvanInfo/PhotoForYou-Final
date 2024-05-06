@@ -1,4 +1,6 @@
 <?php
+
+// Script utiliser pour l'affichage des photos.
 foreach ($photo as $photos) {
 
     if ($photos['estSupprimee'] == 0)

@@ -1,5 +1,12 @@
 <?php
 class Photo
+
+/**
+ * Classe Photo
+ * 
+ * Cette classe représente les informations d'une photo.
+ */
+
 {
 	// Attributs
 	private $_idPhoto;

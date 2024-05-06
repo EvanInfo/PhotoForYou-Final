@@ -1,6 +1,5 @@
 <?php
 /**
- * Script de transfert des photos vers la base de données à partir du formulaire.
  *
  * Ce script vérifie si la requête est de type POST, récupère la catégorie sélectionnée
  * et redirige vers la page générale avec la catégorie en tant que paramètre GET.

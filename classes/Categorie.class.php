@@ -1,5 +1,12 @@
 <?php
 class Categorie
+
+/**
+ * Classe Categorie
+ * 
+ * Cette classe représente les catégories pour les photos
+ * Elle permet de gérer les informations relatives au catégorie des photos.
+ */
 {
 	// Attributs
 	private $_idCategorie;

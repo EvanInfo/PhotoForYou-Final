@@ -1,5 +1,7 @@
 <?php
     include ("../include/entete.inc.php");
+
+    // Permet de supprimer une photo
 ?>
 <?php
     if (isset($_SESSION['login']) && $_SESSION['login']==true)
